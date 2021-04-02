@@ -5,14 +5,11 @@
   </head>
   <body>
     <% include partials/menu %>
-    <div class="container-fluid bg-3 text-center">    
+    <div class="text-center">    
       <h3><%= page %></h3><br>
-      <div class="row">
-        <div class="col-sm-4">
-          
-          <% if(student.length > 0) { %>
-            <table>
-              <thead>
+      <% if(student.length>0){ %>
+            <table class="table">
+              <thead scope="col">
                 <tr>
                   <th>Name</th>
                   <th>Reg no</th>
@@ -20,18 +17,19 @@
                 </tr>
               </thead>
               <tbody>
-                <% for(var i=0; i<students.length; i++) { %>
+                <% for(var i=0; i<student.length; i++){ %>
                   <tr>
-                    <td><a href="/students/show/<%= studentss[i]._id %>"><% students[i].name %></a></td>
-                    <td><% students[i].regno %></td>
-                    <td><% students[i].course %></td>
+                    <td><a href="/student/show/<%= student[i]._id %>"><%= student[i].name%></a></td>
+                    <td><%= student[i].regno%></td>
+                    <td><%= student[i].course%></td>
                   </tr>
                   <% } %>
               </tbody>
             </table>
-            <% } else {%>
+            <% } else { %>
                     <div>No students found</div>
           <% } %>
+          </div>
         </div>
       </div>
     </div>
